@@ -1,15 +1,18 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
-//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
-//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+// @lovable.dev/vite-tanstack-config provides the TanStack Start Vite setup.
+// We keep it so Lovable remains fully compatible with the project while the
+// production build runs in SPA mode for static GitHub Pages hosting.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    base: "/roamgenius-scribe/",
+  },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
+    // Keep the existing server entry for Lovable/TanStack Start compatibility.
     server: { entry: "server" },
+    // GitHub Pages serves static files only, so the app ships as an SPA shell.
+    spa: {
+      enabled: true,
+    },
   },
 });
