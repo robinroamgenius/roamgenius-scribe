@@ -33,12 +33,12 @@ jobs:
         run: bun run build
 
       - name: Prepare GitHub Pages fallback
-        run: cp dist/index.html dist/404.html
+        run: cp .output/public/index.html .output/public/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: .output/public
 
   deploy:
     needs: build
