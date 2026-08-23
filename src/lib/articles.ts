@@ -78,7 +78,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Kolik výkonu potřebujete" },
       {
         type: "p",
-        text: "Pro jednu instanci MetaTraderu s několika experty postačí 2 vCPU a 4 GB RAM. Jakmile přidáte druhý terminál nebo náročnější optimalizace, počítejte s 4 vCPU a 8 GB RAM. Vyhněte se sdíleným hostingům, které slibují „neomezené" prostředky — u tradingu je důležitá garantovaná alokace.",
+        text: "Pro jednu instanci MetaTraderu s několika experty postačí 2 vCPU a 4 GB RAM. Jakmile přidáte druhý terminál nebo náročnější optimalizace, počítejte s 4 vCPU a 8 GB RAM. Vyhněte se sdíleným hostingům, které slibují „neomezené“ prostředky — u tradingu je důležitá garantovaná alokace.",
       },
       { type: "h3", text: "Na co si dát pozor" },
       {
@@ -172,7 +172,7 @@ export const articles: Article[] = [
       { type: "h3", text: "3. Look-ahead bias" },
       {
         type: "p",
-        text: "Klasická past: strategie „vidí" data, která v době obchodu ještě neexistovala — například uzavírací cenu svíčky, která se právě formuje. Vždy testujte pouze s informacemi dostupnými v momentě vstupu.",
+        text: "Klasická past: strategie „vidí“ data, která v době obchodu ještě neexistovala — například uzavírací cenu svíčky, která se právě formuje. Vždy testujte pouze s informacemi dostupnými v momentě vstupu.",
       },
       {
         type: "quote",
@@ -252,7 +252,7 @@ export const articles: Article[] = [
     content: [
       {
         type: "p",
-        text: "Daňová rezidence určuje, kde odvádíte daně z celosvětových příjmů. Většina zemí používá pravidlo 183 dní, ale pozor — stačí, aby vás domovský stát považoval za rezidenta kvůli „centru životních zájmů", a povinnosti vám vznikají i při kratším pobytu.",
+        text: "Daňová rezidence určuje, kde odvádíte daně z celosvětových příjmů. Většina zemí používá pravidlo 183 dní, ale pozor — stačí, aby vás domovský stát považoval za rezidenta kvůli „centru životních zájmů“, a povinnosti vám vznikají i při kratším pobytu.",
       },
       { type: "h2", text: "Tři legální modely" },
       { type: "h3", text: "1. Rezidence v zemi s teritoriálním zdaněním" },
