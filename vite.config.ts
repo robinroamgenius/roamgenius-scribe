@@ -16,13 +16,13 @@ export default defineConfig({
   },
   tanstackStart: {
     server: { entry: "server" },
-    prerender: {
-      routes: ["/posts/*"],
-      crawlLinks: true,
-      failOnError: true,
-    },
     spa: {
       enabled: true,
+      prerender: {
+        routes: ["/posts/vps-pro-algoritmicky-trading"],
+        crawlLinks: true,
+        failOnError: true,
+      },
     },
   },
 });
