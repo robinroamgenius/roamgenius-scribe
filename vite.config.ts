@@ -16,6 +16,11 @@ export default defineConfig({
   },
   tanstackStart: {
     server: { entry: "server" },
+    prerender: {
+      routes: ["/posts/*"],
+      crawlLinks: true,
+      failOnError: true,
+    },
     spa: {
       enabled: true,
     },
