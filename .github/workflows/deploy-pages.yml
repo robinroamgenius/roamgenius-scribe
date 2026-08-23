@@ -32,6 +32,9 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Prepare SPA shell for GitHub Pages
+        run: cp .output/public/_shell.html .output/public/index.html
+
       - name: Prepare GitHub Pages fallback
         run: cp .output/public/index.html .output/public/404.html
 
