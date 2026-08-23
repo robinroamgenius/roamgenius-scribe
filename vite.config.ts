@@ -1,6 +1,7 @@
 // @lovable.dev/vite-tanstack-config keeps the project compatible with Lovable.
-// For the GitHub Pages build we use a Node-compatible Nitro target so TanStack
-// Start can prerender the SPA shell during CI, then publish only static output.
+// GitHub Pages only needs the static SPA shell, so we deliberately disable
+// TanStack's build-time preview/prerender step. That step currently expects
+// the legacy dist/server/server.js layout, while Nitro outputs .output/server.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
@@ -15,7 +16,7 @@ export default defineConfig({
     spa: {
       enabled: true,
       prerender: {
-        outputPath: "/index.html",
+        enabled: false,
       },
     },
   },
