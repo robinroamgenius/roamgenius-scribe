@@ -69,9 +69,9 @@ function hashString(input: string): number {
 
 function poolFor(title: string): Pool[] {
   for (const [pattern, pool] of KEYWORD_RULES) {
-    if (pattern.test(title)) return POOLS[pool];
+    if (pattern.test(title)) return POOLS[pool]!;
   }
-  return POOLS[FALLBACK_POOL];
+  return POOLS[FALLBACK_POOL]!;
 }
 
 export type ArticleImage = { url: string; alt: string };
@@ -83,7 +83,7 @@ export function articleImage(
   height = 1000,
 ): ArticleImage {
   const pool = poolFor(title);
-  const pick = pool[hashString(title) % pool.length];
+  const pick = pool[hashString(title) % pool.length]!;
   return {
     url: `https://images.unsplash.com/${pick.id}?auto=format&fit=crop&w=${width}&h=${height}&q=80`,
     alt: pick.alt,
