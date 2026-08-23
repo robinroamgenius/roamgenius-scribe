@@ -4,8 +4,8 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Domů", to: "/" },
-  { label: "Algoritmický trading", to: "/#clanky" },
-  { label: "Newsletter", to: "/#newsletter" },
+  { label: "Algoritmický trading", to: `${import.meta.env.BASE_URL}#clanky` },
+  { label: "Newsletter", to: `${import.meta.env.BASE_URL}#newsletter` },
 ];
 
 export function Navbar() {
@@ -37,7 +37,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="/#newsletter"
+            href={`${import.meta.env.BASE_URL}#newsletter`}
             className="rounded-sm bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-opacity hover:opacity-85"
           >
             Odebírat
@@ -70,7 +70,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="/#newsletter"
+              href={`${import.meta.env.BASE_URL}#newsletter`}
               onClick={() => setOpen(false)}
               className="mt-1 inline-flex w-fit rounded-sm bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-primary-foreground"
             >
