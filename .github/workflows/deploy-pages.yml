@@ -32,11 +32,11 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Prepare SPA shell for GitHub Pages
-        run: cp .output/public/_shell.html .output/public/index.html
-
-      - name: Prepare GitHub Pages fallback
-        run: cp .output/public/index.html .output/public/404.html
+      - name: Prepare GitHub Pages static output
+        run: |
+          cp .output/public/_shell.html .output/public/index.html
+          cp .output/public/index.html .output/public/404.html
+          find .output/public/posts -mindepth 2 -maxdepth 2 -name index.html -print
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
