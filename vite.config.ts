@@ -18,6 +18,11 @@ export default defineConfig({
     server: { entry: "server" },
     spa: {
       enabled: true,
+      prerender: {
+        routes: ["/posts/vps-pro-algoritmicky-trading"],
+        crawlLinks: true,
+        failOnError: true,
+      },
     },
   },
 });
