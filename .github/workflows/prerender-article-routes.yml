@@ -1,0 +1,37 @@
+name: Verify article prerendering
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "vite.config.ts"
+      - "src/routes/**"
+      - "src/lib/articles.ts"
+      - "package.json"
+      - "bun.lock"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
+      - name: Verify prerendered article route
+        run: test -f .output/public/posts/vps-pro-algoritmicky-trading/index.html
