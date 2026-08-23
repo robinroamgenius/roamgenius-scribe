@@ -36,7 +36,9 @@ jobs:
         run: |
           cp .output/public/_shell.html .output/public/index.html
           cp .output/public/index.html .output/public/404.html
-          find .output/public/posts -mindepth 2 -maxdepth 2 -name index.html -print
+          if [ -d .output/public/posts ]; then
+            find .output/public/posts -mindepth 2 -maxdepth 2 -type f -name index.html -print
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
