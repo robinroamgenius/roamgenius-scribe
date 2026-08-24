@@ -30,20 +30,22 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build
+        env:
+          VITE_BASE: /roamgenius-scribe/
         run: bun run build
 
       - name: Prepare GitHub Pages static output
         run: |
-          test -f .output/public/index.html
-          cp .output/public/index.html .output/public/404.html
-          if [ -d .output/public/posts ]; then
-            find .output/public/posts -mindepth 2 -maxdepth 2 -type f -name index.html -print
+          test -f dist/index.html
+          test -f dist/404.html
+          if [ -d dist/posts ]; then
+            find dist/posts -mindepth 2 -maxdepth 2 -type f -name index.html -print
           fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist
 
   deploy:
     needs: build
