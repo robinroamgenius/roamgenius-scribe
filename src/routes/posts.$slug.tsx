@@ -19,6 +19,7 @@ export const postRoute = createRoute({
 });
 
 function PostNotFound() {
+  useHead("Článek nenalezen — RoamGenius", []);
   return (
     <main className="mx-auto max-w-3xl px-5 py-32 text-center md:px-8">
       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
