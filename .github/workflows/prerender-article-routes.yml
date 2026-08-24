@@ -34,4 +34,4 @@ jobs:
         run: bun run build
 
       - name: Verify prerendered article route
-        run: test -f .output/public/posts/vps-pro-algoritmicky-trading/index.html
+        run: test -f dist/posts/vps-pro-algoritmicky-trading/index.html
