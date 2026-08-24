@@ -24,7 +24,7 @@ function githubPagesSpaFallback(): Plugin {
 export default defineConfig({
   // "/" locally and in the Lovable preview; the GitHub Actions workflow sets
   // VITE_BASE to "/<repo>/" for GitHub Pages project sites.
-  base: process.env.VITE_BASE ?? "/",
+  base: process.env["VITE_BASE"] ?? "/",
   plugins: [react(), tailwindcss(), tsconfigPaths(), githubPagesSpaFallback()],
   server: {
     port: 8080,

@@ -41,9 +41,21 @@ function PostNotFound() {
 }
 
 function PostPage() {
-  const article = Route.useLoaderData();
+  const article = postRoute.useLoaderData();
   const image = articleImage(article.title, 1920, 1080);
   const related = articles.filter((a) => a.slug !== article.slug).slice(0, 2);
+
+  useHead(`${article.title} — RoamGenius`, [
+    { name: "description", content: article.excerpt },
+    { property: "og:title", content: article.title },
+    { property: "og:description", content: article.excerpt },
+    { property: "og:type", content: "article" },
+    { property: "og:image", content: image.url },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: article.title },
+    { name: "twitter:description", content: article.excerpt },
+    { name: "twitter:image", content: image.url },
+  ]);
 
   return (
     <main>
