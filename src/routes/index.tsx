@@ -1,19 +1,31 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { articles } from "../lib/articles";
-import { ArticleCard } from "../components/ArticleCard";
 import { ArrowRight, Check } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "RoamGenius — Algoritmický trading a geografická arbitráž pro digitální nomády" },
+import { rootRoute } from "./__root";
+import { articles } from "../lib/articles";
+import { ArticleCard } from "../components/ArticleCard";
+import { useHead } from "../lib/use-head";
+
+export const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/",
+  component: HomePage,
+});
+
+function HomePage() {
+  useHead(
+    "RoamGenius — Algoritmický trading a geografická arbitráž pro digitální nomády",
+    [
       {
         name: "description",
         content:
           "Prémiový magazín o automatizovaném obchodování (AOS), algoritmických strategiích a geografické arbitráži. Vydělávejte chytře, žijte svobodně.",
       },
-      { property: "og:title", content: "RoamGenius — Algoritmický trading a geografická arbitráž" },
+      {
+        property: "og:title",
+        content: "RoamGenius — Algoritmický trading a geografická arbitráž",
+      },
       {
         property: "og:description",
         content:
@@ -22,11 +34,8 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-  }),
-  component: HomePage,
-});
+  );
 
-function HomePage() {
   const [featured, ...rest] = articles;
 
   return (
