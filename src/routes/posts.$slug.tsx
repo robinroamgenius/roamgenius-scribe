@@ -1,43 +1,25 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createRoute, notFound, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
+import { rootRoute } from "./__root";
 import { articles, formatDate, getArticle } from "../lib/articles";
 import { articleImage } from "../lib/article-image";
-import { ArticleCard } from "../components/ArticleCard";
 import { CtaBox } from "../components/CtaBox";
+import { useHead } from "../lib/use-head";
 
-export const Route = createFileRoute("/posts/$slug")({
+export const postRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/posts/$slug",
   loader: ({ params }) => {
     const article = getArticle(params.slug);
     if (!article) throw notFound();
     return article;
-  },
-  head: ({ loaderData }) => {
-    if (!loaderData) {
-      return {
-        meta: [{ title: "Článek nenalezen — RoamGenius" }],
-      };
-    }
-    const image = articleImage(loaderData.title, 1920, 1080);
-    return {
-      meta: [
-        { title: `${loaderData.title} — RoamGenius` },
-        { name: "description", content: loaderData.excerpt },
-        { property: "og:title", content: loaderData.title },
-        { property: "og:description", content: loaderData.excerpt },
-        { property: "og:type", content: "article" },
-        { property: "og:image", content: image.url },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: loaderData.title },
-        { name: "twitter:description", content: loaderData.excerpt },
-        { name: "twitter:image", content: image.url },
-      ],
-    };
   },
   notFoundComponent: PostNotFound,
   component: PostPage,
 });
 
 function PostNotFound() {
+  useHead("Článek nenalezen — RoamGenius", []);
   return (
     <main className="mx-auto max-w-3xl px-5 py-32 text-center md:px-8">
       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
@@ -60,9 +42,21 @@ function PostNotFound() {
 }
 
 function PostPage() {
-  const article = Route.useLoaderData();
+  const article = postRoute.useLoaderData();
   const image = articleImage(article.title, 1920, 1080);
   const related = articles.filter((a) => a.slug !== article.slug).slice(0, 2);
+
+  useHead(`${article.title} — RoamGenius`, [
+    { name: "description", content: article.excerpt },
+    { property: "og:title", content: article.title },
+    { property: "og:description", content: article.excerpt },
+    { property: "og:type", content: "article" },
+    { property: "og:image", content: image.url },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: article.title },
+    { name: "twitter:description", content: article.excerpt },
+    { name: "twitter:image", content: image.url },
+  ]);
 
   return (
     <main>
