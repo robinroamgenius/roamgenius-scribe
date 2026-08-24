@@ -1,22 +1,22 @@
-import { Link } from "@tanstack/react-router";
-
 export function Footer() {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <footer className="border-t border-border bg-secondary/50">
       <div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Link to="/" aria-label="RoamGenius — domovská stránka" className="inline-flex h-9 items-center">
+            <a href={baseUrl} aria-label="RoamGenius — domovská stránka" className="inline-flex h-9 items-center">
               <img
-                src="/roamgenius-logo.jpg"
+                src={`${baseUrl}roamgenius-logo.jpg`}
                 alt="RoamGenius"
                 className="h-full w-auto object-contain"
                 loading="lazy"
               />
-            </Link>
+            </a>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Automatizovaný trading, algoritmické strategie a geografická
-              arbitráž pro digitální nomády, kteří chtějí svobodu bez kompromisů.
+              Cestování, technologie, AI, automatizace a chytré způsoby, jak si
+              vytvořit více svobody a žít kdekoliv.
             </p>
           </div>
 
@@ -24,17 +24,17 @@ export function Footer() {
             <span className="col-span-2 mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Rubriky
             </span>
-            <a href="/#clanky" className="text-foreground/75 transition-colors hover:text-foreground">
+            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
               Algoritmický trading
             </a>
-            <a href="/#clanky" className="text-foreground/75 transition-colors hover:text-foreground">
-              Geografická arbitráž
+            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
+              Cestování
             </a>
-            <a href="/#clanky" className="text-foreground/75 transition-colors hover:text-foreground">
-              Nástroje
+            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
+              AI &amp; automatizace
             </a>
-            <a href="/#clanky" className="text-foreground/75 transition-colors hover:text-foreground">
-              Daně &amp; rezidence
+            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
+              Business &amp; svoboda
             </a>
           </nav>
         </div>
