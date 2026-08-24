@@ -34,7 +34,7 @@ jobs:
 
       - name: Prepare GitHub Pages static output
         run: |
-          cp .output/public/_shell.html .output/public/index.html
+          test -f .output/public/index.html
           cp .output/public/index.html .output/public/404.html
           if [ -d .output/public/posts ]; then
             find .output/public/posts -mindepth 2 -maxdepth 2 -type f -name index.html -print
