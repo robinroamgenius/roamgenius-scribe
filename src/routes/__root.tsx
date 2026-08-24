@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -14,6 +13,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-4">
@@ -24,12 +25,12 @@ function NotFoundComponent() {
           Stránka, kterou hledáte, neexistuje nebo byla přesunuta.
         </p>
         <div className="mt-6">
-          <Link
-            to="/"
+          <a
+            href={BASE_URL}
             className="inline-flex items-center justify-center rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
           >
             Zpět domů
-          </Link>
+          </a>
         </div>
       </div>
     </div>
@@ -63,7 +64,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             Zkusit znovu
           </button>
           <a
-            href="/"
+            href={BASE_URL}
             className="inline-flex items-center justify-center rounded-sm border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Zpět domů
@@ -83,13 +84,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "RoamGenius — prémiový magazín o automatizovaném tradingu, algoritmických strategiích (AOS) a geografické arbitráži pro digitální nomády.",
+          "RoamGenius — magazín o cestování, technologiích, AI, automatizaci, chytrém businessu a svobodě žít kdekoliv.",
       },
       { property: "og:title", content: "RoamGenius" },
       {
         property: "og:description",
         content:
-          "Automatizovaný trading, AOS a geografická arbitráž pro digitální nomády.",
+          "Cestování, AI, automatizace, chytrý business a praktické cesty k větší svobodě.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -102,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,opsz,wght@0,18..144,300;0,18..144,400;0,18..144,700;0,18..144,900;1,18..144,400&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "icon", type: "image/png", href: `${BASE_URL}favicon.png` },
     ],
   }),
   shellComponent: RootShell,
@@ -133,7 +134,6 @@ function RootComponent() {
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <div className="flex-1">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </div>
         <Footer />
