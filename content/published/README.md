@@ -1,15 +1,21 @@
 # Published articles
 
-This directory is the canonical home for published editorial content.
+This directory is the **single source of truth** for live editorial content.
 
-For now, the live application still reads the existing catalogue in `src/lib/articles.ts`. The catalogue migration should be completed before removing that source of truth.
+## Publishing
 
-Planned article format:
+- One article = one `.ts` file.
+- Filename = article slug.
+- The file exports one default object matching `Article`.
+- Every file here is automatically loaded by the Vite build.
+- Files in `../draft/` are never included in the live catalogue.
 
-- one file per article
-- filename = slug
-- front matter for metadata
-- body for article content
-- status is implicit from the directory (`published`)
+## Add a new article
 
-Do not put drafts here.
+1. Write it in `content/draft/`.
+2. Review and finalize metadata, body blocks and CTA links.
+3. Move the file to `content/published/`.
+4. Build and deploy.
+
+The homepage and `/posts/:slug` route read this catalogue automatically. No
+manual edit of `src/lib/articles.ts` is required.
