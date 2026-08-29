@@ -48,7 +48,13 @@ const article = {
       "title": "Specializovaný VPS pro trading",
       "text": "Servery optimalizované pro MetaTrader s latencí pod 1 ms k hlavním brokerům. Předinstalované MT4/MT5, uptime 99,99 % a podpora, která rozumí tradingu.",
       "button": "Zobrazit nabídku broker VPS",
-      "href": "#"
+      "href": "#",
+      "affiliate": {
+        "provider": "travelpayouts",
+        "program": "broker-vps",
+        "destinationUrl": "#",
+        "subId": "vps-pro-algoritmicky-trading"
+      }
     },
     {
       "type": "h2",

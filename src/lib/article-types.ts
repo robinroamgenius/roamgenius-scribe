@@ -11,6 +11,12 @@ export type ArticleBlock =
       text: string;
       button: string;
       href: string;
+      affiliate?: {
+        provider?: "travelpayouts";
+        program: string;
+        destinationUrl: string;
+        subId?: string;
+      };
     };
 
 export type Article = {
