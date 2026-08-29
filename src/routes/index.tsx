@@ -15,21 +15,21 @@ export const indexRoute = createRoute({
 
 function HomePage() {
   useHead(
-    "RoamGenius — Algoritmický trading a geografická arbitráž pro digitální nomády",
+    "RoamGenius — Cestování, AI, trading a svoboda",
     [
       {
         name: "description",
         content:
-          "Prémiový magazín o automatizovaném obchodování (AOS), algoritmických strategiích a geografické arbitráži. Vydělávejte chytře, žijte svobodně.",
+          "Prémiový magazín o cestování, AI, automatizaci, algoritmickém tradingu a chytřejších způsobech, jak získat více svobody.",
       },
       {
         property: "og:title",
-        content: "RoamGenius — Algoritmický trading a geografická arbitráž",
+        content: "RoamGenius — Cestování, AI, trading a svoboda",
       },
       {
         property: "og:description",
         content:
-          "Prémiový magazín o automatizovaném obchodování (AOS), algoritmických strategiích a geografické arbitráži pro digitální nomády.",
+          "Cestování, AI, automatizace, algoritmický trading a chytré způsoby, jak získat více svobody.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -44,7 +44,7 @@ function HomePage() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent">
-            Magazín pro digitální nomády
+            Cestování · AI · Trading · Svoboda
           </p>
           <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[1.12] text-foreground md:text-6xl">
             Obchodujte algoritmy.
