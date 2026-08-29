@@ -16,25 +16,19 @@ export function Footer() {
             </a>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Cestování, technologie, AI, automatizace a chytré způsoby, jak si
-              vytvořit více svobody a žít kdekoliv.
+              vytvořit více svobody a žít podle vlastních pravidel.
             </p>
           </div>
 
-          <nav className="grid grid-cols-2 gap-x-16 gap-y-3 text-sm">
-            <span className="col-span-2 mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Rubriky
+          <nav className="grid gap-y-3 text-sm">
+            <span className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Prozkoumat
             </span>
             <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
-              Algoritmický trading
+              Nejnovější články
             </a>
-            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
-              Cestování
-            </a>
-            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
-              AI &amp; automatizace
-            </a>
-            <a href={`${baseUrl}#clanky`} className="text-foreground/75 transition-colors hover:text-foreground">
-              Business &amp; svoboda
+            <a href={`${baseUrl}#newsletter`} className="text-foreground/75 transition-colors hover:text-foreground">
+              Newsletter
             </a>
           </nav>
         </div>
@@ -42,8 +36,8 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>© 2026 RoamGenius. Všechna práva vyhrazena.</p>
           <p>
-            Obsah má informativní charakter a nepředstavuje investiční
-            doporučení. Obchodování je spojeno s rizikem ztráty kapitálu.
+            Obsah má informativní charakter a nepředstavuje investiční doporučení.
+            Obchodování je spojeno s rizikem ztráty kapitálu.
           </p>
         </div>
       </div>
