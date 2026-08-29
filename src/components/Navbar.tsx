@@ -5,7 +5,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const NAV_LINKS = [
   { label: "Domů", to: BASE_URL },
-  { label: "Algoritmický trading", to: `${BASE_URL}#clanky` },
+  { label: "Články", to: `${BASE_URL}#clanky` },
   { label: "Newsletter", to: `${BASE_URL}#newsletter` },
 ];
 
