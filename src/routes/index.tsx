@@ -47,13 +47,13 @@ function HomePage() {
             Cestování · AI · Trading · Svoboda
           </p>
           <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[1.12] text-foreground md:text-6xl">
-            Obchodujte algoritmy.
+            Cestujte chytře.
             <br />
-            Žijte kdekoliv.
+            Žijte svobodně.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Automatizované obchodní systémy, backtesting a geografická arbitráž —
-            prakticky, bez omáček a s respektem k vašemu kapitálu.
+            Cestování, AI, automatizace, algoritmický trading a chytré nástroje —
+            prakticky, bez omáček a s respektem k vašemu času i kapitálu.
           </p>
         </div>
       </section>
@@ -98,8 +98,8 @@ function NewsletterSection() {
               Jednou týdně. Jen to podstatné.
             </h2>
             <p className="mt-4 max-w-md leading-relaxed text-primary-foreground/75">
-              Nové strategie, testy brokerů a tipy na nomádské destinace.
-              Žádný spam — odhlášení jedním klikem.
+              Nové nápady z cestování, AI, automatizace, tradingu a chytrého
+              životního designu. Žádný spam — odhlášení jedním klikem.
             </p>
           </div>
 
